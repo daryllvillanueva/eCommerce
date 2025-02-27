@@ -1,0 +1,16 @@
+{
+    "name": "beststoremvc",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/output.css --minify"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "flowbite": "^3.0.0",
+        "tailwindcss": "^3.3.3"
+    }
+}

@@ -1,0 +1,78 @@
+﻿@model ProductDto
+
+@{
+
+}
+
+<div class="min-h-screen flex items-center justify-center py-7 dark:bg-gray-800 px-4 sm:px-6">
+	<div class="border border-gray-300 p-6 rounded-lg shadow-md max-w-xl w-full dark:border-gray-600 relative">
+		<h2 class="text-center text-2xl font-semibold mb-5 dark:text-white">Edit Product</h2>
+
+		<div class="absolute top-0 left-0 w-[2rem]">
+			<input class="shadow-xs bg-gray-50 border-b border-r border-gray-300 text-gray-900 text-sm w-full rounded-tl-lg p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:shadow-xs-light focus:outline-none focus:ring-0"
+				   readonly value="@ViewData["ProductId"]" />
+		</div>
+
+		<form class="w-full mx-auto" method="post" enctype="multipart/form-data">
+			<div class="flex flex-col sm:flex-row gap-5 mb-5">
+				<div class="w-full sm:w-1/2">
+					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+					<input class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" asp-for="Name" />
+					<span asp-validation-for="Name" class="text-red-600"></span>
+				</div>
+				<div class="w-full sm:w-1/2">
+					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
+					<input class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" asp-for="Brand" />
+					<span asp-validation-for="Brand" class="text-red-600"></span>
+				</div>
+			</div>
+
+			<div class="mb-5">
+				<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+				<select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" asp-for="Category">
+					<option value="Other">Other</option>
+					<option value="Phones">Phones</option>
+					<option value="Laptop">Laptop</option>
+					<option value="Accessories">Accessories</option>
+					<option value="Printers">Printers</option>
+				</select>
+			</div>
+
+			<div class="mb-5">
+				<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+				<input class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" asp-for="Price" />
+				<span asp-validation-for="Price" class="text-red-600"></span>
+			</div>
+
+			<div class="mb-5">
+				<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+				<textarea rows="5" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-none" placeholder="Description..." asp-for="Description"></textarea>
+				<span asp-validation-for="Description" class="text-red-600"></span>
+			</div>
+
+			<div class="mb-5">
+				<img src="/products/@ViewData["ImageFileName"]" width="200"/>
+			</div>
+
+			<div class="mb-5">
+				<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Created At</label>
+				<input class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" readonly value="@ViewData["CreatedAt"]" />
+			</div>
+
+			<div class="mb-5">
+				<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload Image</label>
+				<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700 focus:outline-none" type="file" asp-for="ImageFileName">
+				<p class="mt-1 text-sm text-gray-500 dark:text-gray-300">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+			</div>
+
+			<div class="mb-5 flex items-center gap-3 mt-auto">
+				<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+					Submit
+				</button>
+				<a class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600" asp-controller="Products" asp-action="Index">
+					Cancel
+				</a>
+			</div>
+		</form>
+	</div>
+</div>
